@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Clinical Evidence Monitoring</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f7fb;
+margin:40px;
+}
+
+.header{
+font-size:20px;
+font-weight:bold;
+margin-bottom:25px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+margin-bottom:20px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+h1{
+margin:0;
+}
+
+h3{
+margin-bottom:15px;
+}
+
+input,select{
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+margin-right:10px;
+}
+
+button{
+padding:10px 16px;
+background:#2f7df6;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1f5ed4;
+}
+
+.paper{
+padding:15px;
+border-bottom:1px solid #eee;
+}
+
+.paper:last-child{
+border-bottom:none;
+}
+
+.chartBox{
+height:300px;
+position:relative;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>
+<i class="fa-solid fa-dna"></i>
+Clinical Evidence Monitoring Dashboard
+</h1>
+</div>
+
+
+<!-- SEARCH -->
+
+<div class="card">
+
+<h3>Search Research</h3>
+
+<div style="display:flex; gap:10px; flex-wrap:wrap">
+
+<input
+id="conditionInput"
+placeholder="Condition (example: Asthma)"
+>
+
+<input
+id="treatmentInput"
+placeholder="Treatment (example: corticosteroids)"
+>
+
+<button onclick="searchResearch()">
+Search
+</button>
+
+<select id="conditionSelect"></select>
+
+</div>
+
+</div>
+
+
+<!-- PAPERS -->
+
+<div class="card">
+
+<h3>Research Papers</h3>
+
+<div id="papers"></div>
+
+</div>
+
+
+<!-- CHARTS -->
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Evidence Stability</h3>
+
+<div class="chartBox">
+<canvas id="stabilityChart"></canvas>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Evidence Breakdown</h3>
+
+<div class="chartBox">
+<canvas id="breakdownChart"></canvas>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Scientific Consensus</h3>
+
+<div style="text-align:center">
+
+<div id="consensusGauge"
+style="
+font-size:48px;
+font-weight:bold;
+color:#2f7df6;
+margin-top:20px;
+">
+--
+</div>
+
+<div id="consensusLabel"
+style="
+font-size:16px;
+margin-top:10px;
+color:#666;
+">
+No data
+</div>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
